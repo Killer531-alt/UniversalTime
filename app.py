@@ -1,6 +1,3 @@
-@app.route('/health')
-def health():
-    return "ok", 200
 # IMPORTS
 import os
 from evaluation import calculate_final_grade
@@ -19,6 +16,9 @@ data_dir = os.path.join(os.path.dirname(__file__), 'data')
 storage = Storage(data_dir)
 ai = AI()
 
+@app.route('/health')
+def health():
+    return "ok", 200
 
 @app.route('/')
 def index():

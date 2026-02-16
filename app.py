@@ -1,21 +1,35 @@
-# IMPORTS
+
+print("[DEBUG] Importing os")
 import os
+print("[DEBUG] Importing evaluation")
 from evaluation import calculate_final_grade
+print("[DEBUG] Importing uuid")
 import uuid
+print("[DEBUG] Importing json")
 import json
+print("[DEBUG] Setting OLLAMA_API_KEY")
 # Configurar la API key de Ollama.com para todo el backend
 os.environ["OLLAMA_API_KEY"] = "4d8096350fbd448cb71ce635a6092075.zYanmZA03H90lj1wM7q8U8Qw"
+print("[DEBUG] Importing Flask")
 from flask import Flask, request, jsonify, send_file, render_template_string
+print("[DEBUG] Importing ai_api")
 from ai_api import bp
+print("[DEBUG] Importing storage")
 from storage import Storage
+print("[DEBUG] Importing ai")
 from ai import AI
 
+print("[DEBUG] Creating Flask app")
 app = Flask(__name__, static_folder='static', static_url_path='/static')
-print("Flask app loaded (inicio)")
+print("[DEBUG] Registering blueprint")
 app.register_blueprint(bp)
+print("[DEBUG] Setting up data_dir")
 data_dir = os.path.join(os.path.dirname(__file__), 'data')
+print("[DEBUG] Creating Storage")
 storage = Storage(data_dir)
+print("[DEBUG] Creating AI instance")
 ai = AI()
+print("[DEBUG] Flask app fully initialized")
 
 @app.route('/health')
 def health():

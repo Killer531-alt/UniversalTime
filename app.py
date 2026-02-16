@@ -1,3 +1,6 @@
+@app.route('/health')
+def health():
+    return "ok", 200
 # IMPORTS
 import os
 from evaluation import calculate_final_grade
@@ -530,9 +533,7 @@ def use_inventory_item():
 
 
 if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=5000)
 
 # Endpoint para iniciar misión y conectar al LLM
 @app.route('/api/mission/start', methods=['POST'])

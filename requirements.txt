@@ -9,3 +9,8 @@ filelock
 requests
 gunicorn
 tiktoken
+openai
+faiss-cpu
+pillow
+pathlib
+uuid

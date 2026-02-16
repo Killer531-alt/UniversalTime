@@ -1,0 +1,15 @@
+{
+  "name": "Semestre Demo",
+  "universes": [
+    {
+      "id": "u1",
+      "name": "DemoVerse",
+      "description": "Universo demo con 2 estudiantes",
+      "rules": {},
+      "totalPoints": 0,
+      "totalMoney": 0,
+      "timeline": [],
+      "enable_images": false
+    }
+  ]
+}

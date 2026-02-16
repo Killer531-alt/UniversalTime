@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Multiverso - IA Educational Game - DEMO</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar: Character & Universe Selection -->
+        <aside class="sidebar">
+            <h2>⚙️ Configuración</h2>
+            
+            <div class="form-group">
+                <label for="universeSelect">🌌 Universo:</label>
+                <select id="universeSelect">
+                    <option value="">Cargando universos...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="characterSelect">👤 Personaje:</label>
+                <select id="characterSelect">
+                    <option value="">Cargando personajes...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="studentName">Estudiante:</label>
+                <input type="text" id="studentName" placeholder="Tu nombre" />
+            </div>
+
+            <div class="form-group">
+                <label for="classNumber">📚 Clase #:</label>
+                <input type="number" id="classNumber" min="1" max="50" value="1" />
+            </div>
+
+            <button id="connectBtn" class="btn btn-primary">Conectar al Juego</button>
+            <button id="openMarketBtn" class="btn btn-tertiary" style="margin-top:0.5rem;">🛒 Tienda</button>
+            <button id="openMissionsBtn" class="btn btn-tertiary" style="margin-top:0.5rem;">📜 Misiones</button>
+
+            <div id="characterStats" class="character-stats" style="display:none;">
+                <h3>📊 Estadísticas</h3>
+                <div class="stat">
+                    <span>Vida:</span>
+                    <div class="stat-bar">
+                        <div id="lifeBar" class="stat-fill" style="width: 100%; background: #4CAF50;"></div>
+                    </div>
+                    <span id="lifePercent">100%</span>
+                </div>
+                <div class="stat">
+                    <span>Puntos:</span>
+                    <span id="pointsValue">0</span>
+                </div>
+                <div class="stat">
+                    <span>Dinero:</span>
+                    <span id="moneyValue">0</span>
+                </div>
+                <div class="stat">
+                    <span>Universo:</span>
+                    <span id="currentUniverse">-</span>
+                </div>
+            </div>
+
+            <button id="openInventoryBtn" class="btn btn-tertiary" style="margin-top:0.5rem;">🎒 Inventario</button>
+
+            <div id="inventoryPanel" class="inventory-panel" style="display:none; margin-top:1rem;">
+                <h3>🎒 Inventario</h3>
+                <div id="inventoryItems"><em>Inventario vacío</em></div>
+                <button id="closeInventoryBtn" class="btn btn-secondary" style="margin-top:0.5rem;">Cerrar Inventario</button>
+            </div>
+
+            <div id="missionsPanel" class="missions-panel" style="display:none; margin-top:1rem;">
+                <h3>📜 Misiones Disponibles</h3>
+                <div id="missionsList">Cargando misiones...</div>
+                <div id="missionStartResult"></div>
+                <button id="closeMissionsBtn" class="btn btn-secondary" style="margin-top:0.5rem;">Cerrar Misiones</button>
+            </div>
+
+            <button id="evaluateBtn" class="btn btn-secondary" style="display:none; margin-top: 1rem;">📜 Ver Calificación</button>
+
+            <div id="gradeInfo" class="grade-info" style="display:none;">
+                <h3>📈 Tu Calificación</h3>
+                <div class="grade-display">
+                    <span id="gradeValue">0</span>
+                    <span>/ 100</span>
+                </div>
+            </div>
+            <!-- Market panel (hidden until opened) -->
+            <div id="marketPanel" class="market-panel" style="display:none; margin-top:1rem;">
+                <h3>🛒 Tienda Multiversal</h3>
+                <div id="marketItems">Cargando items...</div>
+                <button id="closeMarketBtn" class="btn btn-secondary" style="margin-top:0.5rem;">Cerrar Tienda</button>
+            </div>
+        </aside>
+
+        <!-- Main: Chat Area -->
+        <main class="chat-container">
+            <header class="chat-header">
+                <h1>🌍 Multiverso - Juego Educativo de IA</h1>
+                <p id="headerStatus">Selecciona un personaje y universo para comenzar</p>
+            </header>
+
+            <div id="messagesBox" class="messages-box">
+                <div class="message system">
+                    👋 Bienvenido al Multiverso. Selecciona tu personaje y universo para comenzar tu aventura.
+                </div>
+            </div>
+
+            <div class="input-area">
+                <form id="actionForm" onsubmit="sendAction(event)" style="display:none;">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="actionInput" 
+                            placeholder="¿Qué haces ahora? (ej: Ataco al villano, Negocie con el alcalde...)"
+                            autocomplete="off"
+                        />
+                        <button type="submit" class="btn btn-send">Enviar</button>
+                    </div>
+                </form>
+                <div id="connectionWarning" class="warning">
+                    ⚠️ Conéctate primero seleccionando universo, personaje y nombre.
+                </div>
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="loadingSpinner" class="loading-spinner" style="display:none;">
+                <div class="spinner"></div>
+                <p>Procesando acción con IA...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/chat.js"></script>
+</body>
+</html>

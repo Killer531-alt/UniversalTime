@@ -1,0 +1,74 @@
+[
+  {
+    "id": "mission_crystal",
+    "title": "La Búsqueda del Cristal Ancestral",
+    "description": "Encuentra el cristal ancestral escondido en las ruinas del Templo Perdido. Este cristal tiene poderes antiguos.",
+    "difficulty": "hard",
+    "reward_points": 500,
+    "reward_money": 800,
+    "objectives": [
+      "Explora las ruinas del templo",
+      "Resuelve el acertijo antiguo",
+      "Derrota al guardián del cristal"
+    ],
+    "variations": [
+      "El cristal está custodiado por espíritus",
+      "El cristal brilla bajo la luna llena",
+      "El cristal es atrapado por magia antigua"
+    ]
+  },
+  {
+    "id": "mission_riddle",
+    "title": "El Enigma del Sabio",
+    "description": "Un sabio ancestral te presenta tres acertijos. Resuelve todos para ganar su bendición.",
+    "difficulty": "medium",
+    "reward_points": 300,
+    "reward_money": 500,
+    "objectives": [
+      "Escucha el primer acertijo",
+      "Resuelve el segundo enigma",
+      "Responde al tercer desafío"
+    ],
+    "variations": [
+      "El sabio es una ilusión mágica",
+      "Los acertijos cambian según tu respuesta anterior",
+      "El sabio ofrece pistas si demuestras tu valor"
+    ]
+  },
+  {
+    "id": "mission_battle",
+    "title": "Enfrentamiento Épico",
+    "description": "Enfrenta a un enemigo poderoso que amenaza la paz del universo. Solo hay un ganador.",
+    "difficulty": "hard",
+    "reward_points": 600,
+    "reward_money": 1200,
+    "objectives": [
+      "Localiza al enemigo",
+      "Prepárate para la batalla final",
+      "Vence al poderoso adversario"
+    ],
+    "variations": [
+      "El enemigo tiene aliados inesperados",
+      "La batalla tiene lugar bajo una tormenta mágica",
+      "Tu enemigo busca la rendición, no la muerte"
+    ]
+  },
+  {
+    "id": "mission_diplomacy",
+    "title": "Negociaciones Delicadas",
+    "description": "Dos facciones enemigas están al borde de la guerra. Debes negociar una paz.",
+    "difficulty": "medium",
+    "reward_points": 400,
+    "reward_money": 600,
+    "objectives": [
+      "Habla con el líder de la primera facción",
+      "Negocia con el segundo bando",
+      "Alcanza un acuerdo de paz"
+    ],
+    "variations": [
+      "Una facción desconfía de ti",
+      "Se revela un traidor durante las negociaciones",
+      "Un enemigo común aparece durante la paz"
+    ]
+  }
+]

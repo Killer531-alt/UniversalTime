@@ -1,0 +1,63 @@
+[
+  {
+    "id": "heal_potion",
+    "name": "Poción de Curación",
+    "price": 100,
+    "effects": {"lifePercent": 15},
+    "description": "Recupera 15% de vida al usarla."
+  },
+  {
+    "id": "strength_serum",
+    "name": "Suero de Fuerza",
+    "price": 250,
+    "effects": {"points": 200},
+    "description": "Aumenta tus puntos en 200 al usarlo."
+  }
+  ,
+  {
+    "id": "coin_pack",
+    "name": "Saco de Monedas",
+    "price": 150,
+    "effects": {"money": 300},
+    "description": "Un saco con monedas: te da 300 monedas al usarlo.",
+    "consumable": true,
+    "use_text": "Abres el saco y recoges monedas brillantes."
+  },
+  {
+    "id": "elixir",
+    "name": "Elixir Arcano",
+    "price": 400,
+    "effects": {"lifePercent": 30, "points": 50},
+    "description": "Recupera 30% de vida y da +50 puntos.",
+    "consumable": true,
+    "use_text": "Sientes el vigor fluir, recuperas vitalidad y te fortaleces."
+  },
+  {
+    "id": "temporal_shield",
+    "name": "Escudo Temporal",
+    "price": 500,
+    "effects": {"points": 0},
+    "description": "Otorga un escudo temporal (efecto narrativo).",
+    "consumable": true,
+    "use_text": "Un campo protector te envuelve, reduciendo próximas heridas." 
+  },
+  {
+    "id": "teleport_scroll",
+    "name": "Pergamino de Salto",
+    "price": 800,
+    "effects": {"change_universe_to": "mystic_forks"},
+    "description": "Transporta tu personaje a otro rincón del multiverso.",
+    "consumable": true,
+    "use_text": "El pergamino chisporrotea y te transporta a otra realidad."
+  },
+  {
+    "id": "ancient_artifact",
+    "name": "Artefacto Ancestral",
+    "price": 1200,
+    "effects": {"points": 500},
+    "description": "Un objeto raro que otorga muchos puntos (no consumible).",
+    "consumable": false,
+    "use_text": "El artefacto pulsa con poder antiguo." 
+  }
+]
+

@@ -1,0 +1,608 @@
+[
+  {
+    "id": "ironman_juan",
+    "name": "IronMan_Juan",
+    "student": "Juan Pérez",
+    "lifePercent": 1.0,
+    "points": 13895,
+    "money": 1372270.0,
+    "history": [
+      {
+        "event_id": "db9477a8-b6a6-4798-b83c-4034cb2d6da3",
+        "effects": {
+          "points": 150,
+          "money": 500,
+          "lifePercent": 0.8,
+          "specialAction": "Shadow Step"
+        }
+      },
+      {
+        "event_id": "d264d5d6-7057-40a8-b20f-1b383b457b0b",
+        "effects": {
+          "points": 1500,
+          "gold": 500,
+          "health": 100,
+          "skill_level": 5
+        }
+      },
+      {
+        "event_id": "9773e5be-0bf4-43b2-99f0-a63bdee81c50",
+        "effects": {
+          "points": 150,
+          "money": 500,
+          "lifePercent": 0.8,
+          "skill": "Combat Proficiency"
+        }
+      },
+      {
+        "event_id": "3ce22444-4938-42ea-8ed5-2cb998f93570",
+        "effects": {
+          "ExperiencePoints": 125,
+          "Gold": 75,
+          "LifePercent": 0.8,
+          "ObjectiveUnlocked": true
+        }
+      },
+      {
+        "event_id": "2550035d-2ca2-48ea-95a3-67f9e2bfad73",
+        "effects": {
+          "Points": 1500,
+          "Currency": 5000,
+          "LifePercent": 0.8,
+          "Skill": "Combat Proficiency"
+        }
+      },
+      {
+        "event_id": "610c1ab8-4676-45c7-8e94-b51bb7a03585",
+        "effects": {
+          "points": 1500,
+          "money": 5000,
+          "lifePercent": 0.8,
+          "skill": "Combat Expertise"
+        }
+      },
+      {
+        "event_id": "fcc158db-71ae-4c1c-b850-cbd741be475c",
+        "effects": {
+          "points": 150,
+          "money": 500,
+          "lifePercent": 0.8,
+          "specialAction": "Whispers of forgotten magic"
+        }
+      },
+      {
+        "event_id": "b4f76c40-d1e0-45fe-a0df-b41789647020",
+        "effects": {
+          "health": 75,
+          "experience": 125,
+          "trust": 85
+        }
+      },
+      {
+        "event_id": "bb3a21f3-cc63-497a-ad6d-356682f3434c",
+        "effects": {
+          "health": 100,
+          "confidence": 0.85,
+          "experience": 50
+        }
+      },
+      {
+        "event_id": "23e40b15-68ff-4d6a-9c7c-e5800d29e633",
+        "effects": {
+          "healing": 15,
+          "exploration": 8,
+          "interaction": 3,
+          "combat": 2
+        }
+      },
+      {
+        "event_id": "c75b1ede-df17-47b1-b6cd-e020f1078285",
+        "effects": {
+          "lifePercent": -10,
+          "money": -50,
+          "points": -10
+        }
+      },
+      {
+        "event_id": "88c894ad-fae7-4f95-9951-c2709af7851d",
+        "effects": {
+          "lifePercent": -10,
+          "currency": 0,
+          "task": "Lost Life"
+        }
+      },
+      {
+        "event_id": "d5e70c0c-24f0-45af-be3c-0651cb3808fe",
+        "effects": {
+          "points": 15,
+          "money": 50,
+          "lifePercent": 0.8,
+          "healing": 10
+        }
+      },
+      {
+        "event_id": "2a9b3cc0-726e-4dce-b46a-e60ba13ee1e5",
+        "effects": {
+          "money": 50,
+          "lifePercent": -10.0,
+          "status": "injured"
+        }
+      },
+      {
+        "event_id": "326f0505-272a-40d3-ad15-6bef4d3039ed",
+        "effects": {
+          "healing_points": 15,
+          "mood": "slightly anxious",
+          "resource_available": "basic bandages"
+        }
+      },
+      {
+        "event_id": "6bef6436-242f-45e4-9418-0e78a5a58541",
+        "effects": {
+          "points": 125,
+          "money": 500,
+          "lifePercent": 0.85,
+          "SpecialAction": "Curarme"
+        }
+      },
+      {
+        "event_id": "f6d2db99-519a-49ae-86c1-6f88c00c5f4d",
+        "effects": {
+          "points": 15,
+          "money": 50,
+          "lifePercent": 0.8,
+          "SpecialAction": "Curarme"
+        }
+      },
+      {
+        "event_id": "3f058ad7-e263-4307-abe8-8580d7462533",
+        "effects": {
+          "points": 15,
+          "money": 50,
+          "lifePercent": 0.7,
+          "healing": 10
+        }
+      },
+      {
+        "event_id": "3b1feb96-9783-47ff-af5a-d4e9e0f0c0f9",
+        "effects": {
+          "healing_points": 150,
+          "time_spent": 30
+        }
+      },
+      {
+        "event_id": "066e9b26-5d49-4236-994e-8fa2955dd52e",
+        "effects": {
+          "healing_points": 150,
+          "irritability": 0.7
+        }
+      },
+      {
+        "event_id": "120a2ef1-e6f9-48c5-894d-8bcb14ec650c",
+        "effects": {
+          "points": 100,
+          "money": 200,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "57efe9a6-dac6-4f97-a9b8-a5c3d5c67203",
+        "effects": {
+          "points": 200,
+          "money": 200,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "6eafcf03-06ab-465a-a5e1-cac23bd75c1d",
+        "effects": {
+          "points": 100,
+          "money": 750,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "ee757f66-09f3-4996-85eb-589edba971e0",
+        "effects": {
+          "points": 70,
+          "money": 8300,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "53078c22-096f-471b-b28f-94a24de0ca15",
+        "effects": {
+          "points": 100,
+          "money": 800,
+          "lifePercent": -15.0
+        }
+      },
+      {
+        "event_id": "56d31aad-021e-41b6-a6cd-37c585a76fc6",
+        "effects": {
+          "points": 200,
+          "money": 2000,
+          "lifePercent": -15.0
+        }
+      },
+      {
+        "event_id": "ea9e8328-e2c6-4114-a543-657e88e84aac",
+        "effects": {
+          "points": 200,
+          "money": 8300,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "16ed9419-77a5-460f-af06-dc67fd16d285",
+        "effects": {
+          "points": 600,
+          "money": 3200,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "a9092a0c-e9b5-40d6-a9e6-2430ca240643",
+        "effects": {
+          "points": 200,
+          "money": 2000,
+          "lifePercent": -15.0
+        }
+      },
+      {
+        "event_id": "188b9236-b34e-4dfa-abb6-d07766ad3bcb",
+        "effects": {
+          "points": 200,
+          "money": 8300,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "4b50e89d-a7ca-4761-ae93-b7dd7f0f69d6",
+        "effects": {
+          "points": 800,
+          "money": 41200,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "3d819309-51f2-4fd7-a780-817f93f1fc6d",
+        "effects": {
+          "points": 200,
+          "money": 2000,
+          "lifePercent": -15.0
+        }
+      },
+      {
+        "event_id": "1516455f-a49f-4631-b732-2e9304756982",
+        "effects": {
+          "points": 200,
+          "money": 8300,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "96db6789-158f-412c-a731-0e1ca71bff1a",
+        "effects": {
+          "points": 200,
+          "money": 41200,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "0390e5f8-7981-4aa9-89b4-1bbec5ca8d50",
+        "effects": {
+          "points": 200,
+          "money": 750,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "f4dd7420-9059-46d0-b1d1-921fb4c26721",
+        "effects": {
+          "points": 200,
+          "money": 41200,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "8045a63d-174a-45aa-83c5-44f2cd28dbde",
+        "effects": {
+          "points": 200,
+          "money": 7500,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "2fa06273-24ab-45ca-b91a-f9906f7dcb11",
+        "effects": {
+          "points": 100,
+          "money": 25000,
+          "lifePercent": -20.0
+        }
+      },
+      {
+        "event_id": "599f6320-f2eb-49c2-96d1-0066dbe9c4e7",
+        "effects": {
+          "points": 200,
+          "money": 41200,
+          "lifePercent": -20.0
+        }
+      },
+      {
+        "event_id": "eeb86b6b-3306-43eb-b381-f0beacbc0d5d",
+        "effects": {
+          "points": 200,
+          "money": 2000,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "f40027c0-aee6-4e6c-a7b1-e35e86cb1165",
+        "effects": {
+          "points": 70,
+          "money": 35000,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "a53df17d-7d18-4cac-bfcf-bbc16437b638",
+        "effects": {
+          "points": 200,
+          "money": 41200,
+          "lifePercent": -20.0
+        }
+      },
+      {
+        "event_id": "aaf32a88-2382-4315-9970-0052771e3f77",
+        "effects": {
+          "points": 200,
+          "money": 2000,
+          "lifePercent": -20.0
+        }
+      },
+      {
+        "event_id": "7672da1d-4a0d-4225-893c-f7f72d1ebabe",
+        "effects": {
+          "points": 855,
+          "money": 35000,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "15d10910-62be-4acd-a7e6-081d9f74a80e",
+        "effects": {
+          "points": 250,
+          "money": 42500,
+          "lifePercent": -15.0
+        }
+      },
+      {
+        "event_id": "c8b1c68e-7117-4cf5-857e-fd352cdfbe18",
+        "effects": {
+          "points": 200,
+          "money": 2000,
+          "lifePercent": -20.0
+        }
+      },
+      {
+        "event_id": "fc229742-d661-4819-bb07-c13a96cca5f9",
+        "effects": {
+          "points": 855,
+          "money": 35000,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "18e1358e-99ca-4162-9f49-f6c6bba6b708",
+        "effects": {
+          "points": 200,
+          "money": 442600,
+          "lifePercent": -15.0
+        }
+      },
+      {
+        "event_id": "cb92107a-ba63-4b49-867c-db27b9a691d4",
+        "effects": {
+          "points": 200,
+          "money": 8300,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "d1591b65-982f-412d-b45b-52374fd04411",
+        "effects": {
+          "points": 200,
+          "money": 442600,
+          "lifePercent": 30.0,
+          "Narrative": "The rain continues to fall, a relentless torrent eroding your resolve.  You emerge from the ruins, exhausted and soaked, the remnants of your search a testament to a fading hope.  You carry a single, tarnished map – a potential key to a lost sanctuary, a place rumored to hold a relic of immense power.  The wind whispers secrets of forgotten civilizations, and each gust carries the weight of your past failures.",
+          "choices": [
+            "Examine the map closely.",
+            "Head north towards the horizon.",
+            "Rest and replenish your supplies.",
+            "Consult your journal for further clues."
+          ]
+        }
+      },
+      {
+        "event_id": "5fa951e2-ce8a-4560-a411-55ea595ac450",
+        "effects": {
+          "points": 100,
+          "money": 2000,
+          "lifePercent": 20.0
+        }
+      },
+      {
+        "event_id": "36d11d77-6f88-4a75-9c10-eaa99c9968d6",
+        "effects": {
+          "points": 100,
+          "money": 2000,
+          "lifePercent": 20.0
+        }
+      },
+      {
+        "event_id": "67e63061-976c-40b7-aed8-0c0968ce6656",
+        "effects": {
+          "points": 855,
+          "money": 35000,
+          "lifePercent": 30.0
+        }
+      },
+      {
+        "event_id": "0fc47e08-8db2-4bcf-bdbb-978f4ffdd5b2",
+        "effects": {
+          "points": 500
+        }
+      },
+      {
+        "event_id": "ab05e4a9-d4b2-46f6-bbe1-3344b72c0b66",
+        "effects": {}
+      },
+      {
+        "event_id": "af8bc46a-1b6b-4680-9a7d-6c8033035bf6",
+        "effects": {}
+      },
+      {
+        "event_id": "6fb2fb06-f3bc-4b95-850d-5ad226c0b582",
+        "effects": {
+          "points": 150,
+          "money": 200
+        }
+      },
+      {
+        "event_id": "5313e82e-c459-4438-ae67-c24f7f97a1fe",
+        "effects": {}
+      },
+      {
+        "event_id": "766acb76-93d4-4d19-aab0-3758b78eb3a8",
+        "effects": {
+          "points": 150,
+          "money": 300,
+          "lifePercent": -2.0
+        }
+      },
+      {
+        "event_id": "2e6d5710-5a64-4763-bd28-86025e202ed0",
+        "effects": {
+          "points": 100,
+          "lifePercent": -5.0
+        }
+      },
+      {
+        "event_id": "38bd71d3-0211-4c73-b270-722283062a27",
+        "effects": {}
+      },
+      {
+        "event_id": "4523e6c4-4589-43ed-bd9e-f272fbe1956e",
+        "effects": {
+          "points": 50,
+          "lifePercent": -1.0
+        }
+      },
+      {
+        "event_id": "bc4219d0-4d7e-4e68-89fc-223dc5939781",
+        "effects": {
+          "points": 50,
+          "lifePercent": -0.5
+        }
+      },
+      {
+        "event_id": "3e26fee0-53ea-4733-a494-8b3d9754f8d9",
+        "effects": {}
+      },
+      {
+        "event_id": "9a65d4e8-76c8-47f3-ab90-91f219a413dc",
+        "effects": {
+          "points": 20,
+          "lifePercent": 5.0
+        }
+      },
+      {
+        "event_id": "5fe3ddfa-0efb-4785-b0c0-85a5e1e4dd54",
+        "effects": {
+          "points": 100,
+          "money": 200,
+          "lifePercent": -2.0
+        }
+      },
+      {
+        "event_id": "12ac86a7-3d2f-478f-8123-7562e5b04790",
+        "effects": {
+          "points": 50,
+          "lifePercent": 5.0
+        }
+      },
+      {
+        "event_id": "1aa6cb17-fa23-46a5-8894-6e1cc61b0ea4",
+        "effects": {}
+      },
+      {
+        "event_id": "6a0f64e3-dbb5-42e5-8968-73cea6b2a7d4",
+        "effects": {
+          "points": 50,
+          "money": 20
+        }
+      },
+      {
+        "event_id": "97b4b500-01d1-4d0d-b416-8e5b1543ba22",
+        "effects": {
+          "points": 150,
+          "money": 200,
+          "lifePercent": -0.5
+        }
+      },
+      {
+        "event_id": "b8264591-c469-4dde-b5f0-70d44f044402",
+        "effects": {}
+      },
+      {
+        "event_id": "9149b0bf-3909-4f2e-8e2d-59446aaa2cfe",
+        "effects": {
+          "points": 150,
+          "money": 200
+        }
+      },
+      {
+        "event_id": "48902f67-53c2-4787-b262-5696d7f131e1",
+        "effects": {
+          "points": 10,
+          "lifePercent": 5.0
+        }
+      },
+      {
+        "event_id": "4a925baa-9737-4aaf-ba1e-aeff92d21421",
+        "effects": {}
+      },
+      {
+        "event_id": "f5c869e0-71c5-4cc1-804f-f746a1eeb4e1",
+        "effects": {
+          "lifePercent": 5.0
+        }
+      }
+    ],
+    "currentUniverse": "u1",
+    "inventory": [
+      {
+        "id": "ancient_artifact",
+        "name": "Artefacto Ancestral",
+        "price": 1200,
+        "effects": {
+          "points": 500
+        },
+        "description": "Un objeto raro que otorga muchos puntos (no consumible).",
+        "consumable": false,
+        "use_text": "El artefacto pulsa con poder antiguo."
+      }
+    ]
+  },
+  {
+    "id": "luke_maria",
+    "name": "Luke_Maria",
+    "student": "María López",
+    "lifePercent": 1.0,
+    "points": 0,
+    "money": 0,
+    "history": [],
+    "currentUniverse": "u1"
+  }
+]

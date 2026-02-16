@@ -7,3 +7,4 @@ diffusers
 python-dotenv
 filelock
 requests
+gunicorn

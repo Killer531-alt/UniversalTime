@@ -11,6 +11,7 @@ from storage import Storage
 from ai import AI
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
+print("Flask app loaded (inicio)")
 app.register_blueprint(bp)
 data_dir = os.path.join(os.path.dirname(__file__), 'data')
 storage = Storage(data_dir)

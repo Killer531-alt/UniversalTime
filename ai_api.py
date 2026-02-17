@@ -3,7 +3,7 @@ import time
 import asyncio
 from flask import Blueprint, request, jsonify
 from local_knowledge import LocalKnowledgeBase
-import numpy as np
+
 import requests
 import tiktoken
 

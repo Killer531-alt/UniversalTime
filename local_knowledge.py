@@ -1,47 +1,31 @@
-import faiss
-import numpy as np
-from sentence_transformers import SentenceTransformer
 
 class LocalKnowledgeBase:
-    def __init__(self, model_name='all-MiniLM-L6-v2', dim=384):
-        self.model = SentenceTransformer(model_name)
-        self.dim = dim
-        self.index = faiss.IndexFlatL2(dim)
+    def __init__(self):
         self.texts = []
-        self.embeddings = []
 
     def add_entry(self, text):
-        # If text is in the format 'P: ...\nN: ...', extract only the narrative for storage
+        # Solo almacena el texto relevante (narrativa)
         narrative = text
         if '\nN:' in text:
             parts = text.split('\nN:', 1)
             narrative = parts[1].strip()
-        embedding = self.model.encode([text])[0]
-        self.index.add(np.array([embedding], dtype='float32'))
         self.texts.append(narrative)
-        self.embeddings.append(embedding)
 
     def search(self, query, top_k=1):
+        # Búsqueda muy ligera: coincidencia de palabras clave (puedes mejorar con TF-IDF si quieres)
         if not self.texts:
             return []
-        embedding = self.model.encode([query])[0]
-        D, I = self.index.search(np.array([embedding], dtype='float32'), top_k)
-        # Proteger si FAISS devuelve listas vacías o de forma inesperada
-        if not isinstance(D, np.ndarray) or not isinstance(I, np.ndarray):
-            return []
-        if D.shape[0] == 0 or I.shape[0] == 0:
-            return []
-        if D.shape[1] == 0 or I.shape[1] == 0:
-            return []
-        results = []
-        for idx, dist in zip(I[0], D[0]):
-            if 0 <= idx < len(self.texts):
-                results.append({'text': self.texts[idx], 'score': 1.0 - dist / 2})
-        return results
+        scored = []
+        qwords = set(query.lower().split())
+        for t in self.texts:
+            tw = set(t.lower().split())
+            score = len(qwords & tw) / (len(qwords | tw) + 1e-6)
+            scored.append((score, t))
+        scored.sort(reverse=True)
+        return [{'text': t, 'score': s} for s, t in scored[:top_k]]
 
-    def most_similar(self, query, threshold=0.80):
+    def most_similar(self, query, threshold=0.20):
         results = self.search(query, top_k=1)
         if results and results[0]['score'] >= threshold:
-            # Return only the narrative (already stored as such)
             return results[0]['text'], results[0]['score']
         return None, 0.0

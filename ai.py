@@ -1,39 +1,22 @@
 import os
 import json
-import numpy as np
 from pathlib import Path
 
-from openai import OpenAI
+import requests
 
-from sentence_transformers import SentenceTransformer
-from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
+ 
 
 
 class AI:
-    def __init__(self, embed_model_name: str = 'all-MiniLM-L6-v2', gen_model_name: str = 'EleutherAI/gpt-neo-125M'):
-        # Embedding model (sentence-transformers) - load lazily
-        self.embed_model_name = embed_model_name
-        self.embed_model = None
-
-        # Text generation model (transformers) - small model by default
-        self.gen_model_name = gen_model_name
-        self.tokenizer = None
-        self.gen_model = None
-        self.generator = None
-
-        # Groq integration (replaces Ollama)
-        self.groq_api_key = os.environ.get('GROQ_API_KEY', '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')
-        self.groq_model = os.environ.get('GROQ_MODEL', 'canopylabs/orpheus-arabic-saudi')
-        self.groq_client = OpenAI(
-            api_key=self.groq_api_key,
-            base_url="https://api.groq.com/openai/v1",
-        )
+    def __init__(self):
+        self.ollama_api_key = os.environ.get('OLLAMA_API_KEY', None)
+        self.ollama_model = os.environ.get('OLLAMA_MODEL', 'gpt-oss:120b')
 
     def generate_mission_narrative(self, prompt, character, mission):
         """Genera narrativa específica para una misión usando el LLM."""
         # Usar el generador normal, pero sin requerir JSON, solo narrativa
         try:
-            text = self.groq_generate(prompt)
+            text = self.ollama_generate(prompt)
             try:
                 data = json.loads(text)
                 return data.get('narrative', text)
@@ -46,57 +29,10 @@ class AI:
         """Lazy load embedding model."""
         if self.embed_model is None:
             print(f"Loading embedding model: {self.embed_model_name}...")
-            self.embed_model = SentenceTransformer(self.embed_model_name)
+            pass
         return self.embed_model
 
-    def _load_gen_model(self):
-        """Lazy load text generation model."""
-        if self.generator is None:
-            print(f"Loading text generation model: {self.gen_model_name}...")
-            try:
-                self.tokenizer = AutoTokenizer.from_pretrained(self.gen_model_name)
-                self.gen_model = AutoModelForCausalLM.from_pretrained(self.gen_model_name)
-                self.generator = pipeline('text-generation', model=self.gen_model, tokenizer=self.tokenizer)
-            except Exception:
-                # Fallback: use a simple pipeline with 'gpt2' if specific model download fails
-                print("Falling back to gpt2...")
-                self.tokenizer = AutoTokenizer.from_pretrained('gpt2')
-                self.gen_model = AutoModelForCausalLM.from_pretrained('gpt2')
-                self.generator = pipeline('text-generation', model=self.gen_model, tokenizer=self.tokenizer)
-        return self.generator
-
-    def get_embedding(self, text: str):
-        model = self._load_embed_model()
-        vec = model.encode(text, convert_to_numpy=True)
-        return np.array(vec, dtype=float)
-
-    def search_similar(self, query_vec, events, top_k=5):
-        candidates = []
-        qnorm = np.linalg.norm(query_vec) + 1e-12
-        q = query_vec / qnorm
-        for e in events:
-            if e is None:  # Skip None events
-                continue
-            if not isinstance(e, dict):  # Only process dict events
-                continue
-            emb = e.get('embedding')
-            if not emb:
-                continue
-            try:
-                v = np.array(emb, dtype=float)
-                v = v / (np.linalg.norm(v) + 1e-12)
-                score = float(np.dot(q, v))
-                candidates.append((score, e))
-            except Exception:
-                # Skip events with invalid embeddings
-                continue
-        candidates.sort(key=lambda x: x[0], reverse=True)
-        return [c[1] for c in candidates[:top_k]]
-
-    def build_system_prompt(self, universe, character, recent_events):
-        lines = []
-        lines.append(f"Universe: {universe.get('name', universe.get('id'))}")
-        lines.append(f"Description: {universe.get('description', 'A mystical world')}")
+                # Métodos de embeddings y modelos locales eliminados para máxima ligereza
         
         # Add character context
         if character:
@@ -217,109 +153,5 @@ class AI:
         return response.choices[0].message.content.strip()
 
     def generate_image_for_event(self, universe, event, class_number):
-        """Generate a simple image for the event based on narrative/action keywords.
-        If SD_MODEL_PATH is set, use Stable Diffusion. Otherwise, use a simple PIL-based generator.
-        """
-        sd_path = os.environ.get('SD_MODEL_PATH')
-        
-        # Try Stable Diffusion if configured
-        if sd_path:
-            try:
-                from diffusers import StableDiffusionPipeline
-                print(f"[DEBUG] Loading SD from {sd_path}...")
-                pipe = StableDiffusionPipeline.from_pretrained(sd_path)
-                prompt = universe.get('image_prompt_template') or f"Scene: {event.get('prompt')}"
-                print(f"[DEBUG] Generating image with prompt: {prompt}")
-                image = pipe(prompt).images[0]
-                images_dir = Path(universe.get('image_dir', 'static/images'))
-                images_dir.mkdir(parents=True, exist_ok=True)
-                filename = images_dir / f"{event['universe_id']}_class{class_number}_{event['id']}.png"
-                image.save(filename)
-                print(f"[DEBUG] Image saved: {filename}")
-                return f"/static/images/{filename.name}"
-            except Exception as e:
-                print(f"[DEBUG] SD generation failed: {e}")
-                # Fall through to simple generator
-        
-        # Simple PIL-based image generator (no AI needed)
-        try:
-            from PIL import Image, ImageDraw, ImageFont
-            import random
-            
-            # Extract keywords from narrative for color/theme
-            narrative = event.get('result', {}).get('narrative', event.get('prompt', ''))
-            keywords = narrative.lower().split()
-            
-            # Color mapping for keywords
-            color_map = {
-                'battle': (139, 0, 0),  # dark red
-                'fight': (200, 0, 0),   # red
-                'magic': (75, 0, 130),  # indigo
-                'spell': (75, 0, 130),
-                'treasure': (255, 215, 0),  # gold
-                'gold': (255, 215, 0),
-                'heal': (0, 128, 0),    # green
-                'win': (34, 139, 34),   # forest green
-                'lose': (64, 64, 64),   # gray
-                'death': (0, 0, 0),     # black
-                'adventure': (100, 149, 237),  # cornflower
-                'explore': (100, 149, 237),
-            }
-            
-            # Determine dominant color
-            color = (100, 150, 200)  # default blue
-            for keyword, col in color_map.items():
-                if keyword in keywords:
-                    color = col
-                    break
-            
-            # Create image
-            img = Image.new('RGB', (400, 300), color)
-            draw = ImageDraw.Draw(img)
-            
-            # Add decorative elements
-            effects = event.get('result', {}).get('effects', {})
-            
-            # Draw circles/effects based on stats
-            points = effects.get('points', 0)
-            money = effects.get('money', 0)
-            life_delta = effects.get('lifePercent', 0)
-            
-            # Decorative circles
-            circle_y = 80
-            if points > 0:
-                draw.ellipse([50, circle_y, 120, circle_y + 70], fill=(255, 215, 0), outline=(255, 255, 255), width=2)
-                draw.text((65, circle_y + 20), f"+{int(points)}", fill=(0, 0, 0))
-            
-            if money > 0:
-                draw.ellipse([150, circle_y, 220, circle_y + 70], fill=(192, 192, 192), outline=(255, 255, 255), width=2)
-                draw.text((160, circle_y + 20), f"${int(money)}", fill=(0, 0, 0))
-            
-            if life_delta != 0:
-                # life_delta may be a fractional delta (0.05) or percentage (5 or -5).
-                try:
-                    l = float(life_delta)
-                except Exception:
-                    l = 0
-                if abs(l) <= 1:
-                    display_delta = int(l * 100)
-                else:
-                    display_delta = int(l)
-                color_delta = (0, 200, 0) if display_delta > 0 else (200, 0, 0)
-                draw.ellipse([250, circle_y, 320, circle_y + 70], fill=color_delta, outline=(255, 255, 255), width=2)
-                draw.text((265, circle_y + 20), f"{display_delta}%", fill=(255, 255, 255))
-            
-            # Add border
-            draw.rectangle([10, 10, 390, 290], outline=(255, 255, 255), width=3)
-            
-            # Save
-            images_dir = Path('static/images')
-            images_dir.mkdir(parents=True, exist_ok=True)
-            filename = images_dir / f"{event['universe_id']}_class{class_number}_{event['id']}.png"
-            img.save(filename)
-            print(f"[DEBUG] PIL image saved: {filename}")
-            return f"/static/images/{filename.name}"
-            
-        except Exception as e:
-            print(f"[DEBUG] PIL image generation failed: {e}")
-            return None
+        """No genera imágenes en modo ligero."""
+        return None

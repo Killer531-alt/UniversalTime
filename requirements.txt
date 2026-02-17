@@ -1,16 +1,8 @@
 flask
-numpy
-sentence-transformers
-transformers
-torch
-diffusers
-python-dotenv
-filelock
 requests
 gunicorn
 tiktoken
 openai
-faiss-cpu
-pillow
+filelock
 pathlib
 uuid
